@@ -1,0 +1,19 @@
+
+sqlite3 ".\bin\Debug\net10.0-windows\Datos\jeromotos.db"
+.tables
+.schema Marcas
+Select * From Marcas;
+
+
+// Agregar Marcas
+INSERT INTO Marcas (Id, Nombre, Activo) VALUES
+('f3a1c7d2-84b6-4e09-91a5-27d63f8b104c', 'AKT', 1), 
+('8b52e4f1-39c7-46a0-b215-73d68a9f204e', 'Bajaj', 1),
+('c71d9a36-52e8-4b04-86f1-93a27e5d104c', 'Bmw Motorrad', 1),
+('a46f2c81-73d5-4e09-b128-65a93d7f204c', 'Honda', 1),
+('5e83a1d7-46c9-4b02-95f8-31a72d6e104c', 'Kawasaki', 1),
+('d29f6a43-81c5-4e07-b236-57a91d8f204c', 'KTM', 1),
+('74c1e8a5-39f2-4b06-86d7-21a53f9e204c', 'Suzuki', 1),
+('b63a9f27-15e4-4c08-92d1-58a76e3f204c', 'TVS', 1),
+('91e5c7a3-42f8-4b06-83d2-67a19e5f204c', 'Yamaha', 1),
+('e52a7d31-96c4-4f08-b215-38a61e9d204c', 'Hero', 1);

@@ -1,70 +1,84 @@
 ﻿using JeromotosWpfApp.Models;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Windows.Media.Media3D;
+using JeromotosWpfApp.Persistence;
+using Microsoft.EntityFrameworkCore;
+using System.Windows;
 
 namespace JeromotosWpfApp.Repositories
 {
     public class MarcaRepository
     {
-        private static readonly string folder = "Data";
-        private static readonly string filePath = Path.Combine(folder, "marca.json");
-
-        JsonRepository<Marca> jsonRepository = new JsonRepository<Marca>(folder, filePath);
-
         public List<Marca> GetAll()
         {
-            return jsonRepository
-                .GetAll()
+            using var db = new JeromotosDbContext();
+
+            return db.Marcas
                 .OrderBy(m => m.Nombre)
                 .ToList();
         }
 
-
         public void Add(Marca marca)
         {
-            List<Marca> lista = jsonRepository.GetAll();
+            using var db = new JeromotosDbContext();
 
-            lista.Add(marca);
-
-            jsonRepository.Save(lista);
+            db.Marcas.Add(marca);
+            db.SaveChanges();
         }
-
 
         public void Update(Marca newMarca, Guid id)
         {
-            jsonRepository.Update(newMarca, marca => marca.Id == id);
+            using var db = new JeromotosDbContext();
+
+            var marca = db.Marcas
+                .FirstOrDefault(m => m.Id.ToString() == id.ToString());
+
+            MessageBox.Show((marca != null).ToString());
+
+            if (marca != null)
+            {
+                marca.Nombre = newMarca.Nombre;
+                marca.Activo = newMarca.Activo;
+
+                db.SaveChanges();
+            }
         }
 
         public void Delete(Guid id)
         {
-            jsonRepository.Delete(marca => marca.Id == id);
+            using var db = new JeromotosDbContext();
+
+            var marca = db.Marcas
+                .FirstOrDefault(m => m.Id.ToString() == id.ToString());
+
+            if (marca != null)
+            {
+                db.Marcas.Remove(marca);
+                db.SaveChanges();
+            }
         }
 
         public Marca? Find(Guid id)
         {
-            return jsonRepository.Find(marca => marca.Id == id);
+            using var db = new JeromotosDbContext();
+
+            return db.Marcas
+                .FirstOrDefault(m => m.Id.ToString() == id.ToString());
         }
 
         public bool ExistsByName(string nombre)
         {
-            return jsonRepository
-                .GetAll()
-                .Any(m => m.Nombre.Equals(
-                    nombre.Trim(),
-                    StringComparison.OrdinalIgnoreCase));
+            using var db = new JeromotosDbContext();
+
+            return db.Marcas.Any(m =>
+                m.Nombre.ToLower() == nombre.Trim().ToLower());
         }
+
         public bool ExistsByName(string nombre, Guid excludeId)
         {
-            return jsonRepository
-                .GetAll()
-                .Any(m =>
-                    m.Id != excludeId &&
-                    m.Nombre.Equals(
-                        nombre.Trim(),
-                        StringComparison.OrdinalIgnoreCase));
+            using var db = new JeromotosDbContext();
+
+            return db.Marcas.Any(m =>
+                m.Id != excludeId &&
+                m.Nombre.ToLower() == nombre.Trim().ToLower());
         }
     }
 }

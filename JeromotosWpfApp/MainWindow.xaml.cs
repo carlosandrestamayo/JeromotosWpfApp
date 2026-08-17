@@ -1,4 +1,5 @@
-﻿using JeromotosWpfApp.Repositories;
+﻿using JeromotosWpfApp.Persistence;
+using JeromotosWpfApp.Repositories;
 using JeromotosWpfApp.Views;
 using JeromotosWpfApp.Views.Clientes;
 using JeromotosWpfApp.Views.Marcas;
@@ -24,9 +25,13 @@ namespace JeromotosWpfApp
 
             Contenedor.Content = new DashBoardView();
 
+            //using var db = new JeromotosDbContext();
+
+            //db.Database.EnsureCreated();
+
             //LoadUserInfo();
 
-            ApplyPermissions();
+            //ApplyPermissions();
 
         }
 
