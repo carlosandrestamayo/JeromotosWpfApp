@@ -1,0 +1,133 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ===================================================== -->
+    <!-- MODERN TEXTBOX -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="ModernTextBox"
+           TargetType="TextBox">
+
+        <Setter Property="Height"
+                Value="40"/>
+
+        <Setter Property="FontSize"
+                Value="14"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryText}"/>
+
+        <Setter Property="Background"
+                Value="{StaticResource CardBackground}"/>
+
+        <Setter Property="BorderBrush"
+                Value="{StaticResource BorderColor}"/>
+
+        <Setter Property="BorderThickness"
+                Value="1"/>
+
+        <Setter Property="Padding"
+                Value="14,5"/>
+
+        <Setter Property="Margin"
+                Value="5"/>
+
+        <Setter Property="VerticalContentAlignment"
+                Value="Center"/>
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="TextBox">
+
+                    <Border x:Name="border"
+                            CornerRadius="10"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <Grid>
+
+                            <!-- TEXTO -->
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Margin="0"/>
+
+                            <!-- PLACEHOLDER -->
+                            <TextBlock x:Name="Placeholder"
+
+                                       Text="{TemplateBinding Tag}"
+
+                                       Foreground="{StaticResource SecondaryText}"
+
+                                       Margin="14,0"
+
+                                       VerticalAlignment="Center"
+
+                                       IsHitTestVisible="False"
+
+                                       Visibility="Collapsed"/>
+
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <!-- PLACEHOLDER -->
+
+                        <Trigger Property="Text"
+                                 Value="">
+
+                            <Setter TargetName="Placeholder"
+                                    Property="Visibility"
+                                    Value="Visible"/>
+
+                        </Trigger>
+
+                        <!-- FOCUS -->
+
+                        <Trigger Property="IsKeyboardFocused"
+                                 Value="True">
+
+                            <Setter TargetName="border"
+                                    Property="BorderBrush"
+                                    Value="{StaticResource PrimaryColor}"/>
+
+                            <Setter TargetName="border"
+                                    Property="BorderThickness"
+                                    Value="2"/>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+    </Style>
+
+    <!-- ===================================================== -->
+    <!-- SEARCH TEXTBOX -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="SearchTextBox"
+           TargetType="TextBox"
+           BasedOn="{StaticResource ModernTextBox}">
+
+        <Setter Property="Height"
+                Value="42"/>
+
+        <Setter Property="Padding"
+                Value="18,5"/>
+
+        <Setter Property="FontSize"
+                Value="15"/>
+
+    </Style>
+
+</ResourceDictionary>

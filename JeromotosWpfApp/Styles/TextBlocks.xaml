@@ -1,0 +1,74 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ===================================================== -->
+    <!-- TITLE -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="TitleText"
+           TargetType="TextBlock">
+
+        <Setter Property="FontSize"
+                Value="30"/>
+
+        <Setter Property="FontWeight"
+                Value="Bold"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryText}"/>
+
+    </Style>
+
+    <!-- ===================================================== -->
+    <!-- SUBTITLE -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="SubtitleText"
+           TargetType="TextBlock">
+
+        <Setter Property="FontSize"
+                Value="15"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource SecondaryText}"/>
+
+    </Style>
+
+    <!-- ===================================================== -->
+    <!-- LABEL -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="LabelText"
+           TargetType="TextBlock">
+
+        <Setter Property="FontSize"
+                Value="14"/>
+
+        <Setter Property="FontWeight"
+                Value="SemiBold"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryText}"/>
+
+        <Setter Property="Margin"
+                Value="0,0,0,6"/>
+
+    </Style>
+
+    <!-- ===================================================== -->
+    <!-- MUTED -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="MutedText"
+           TargetType="TextBlock">
+
+        <Setter Property="FontSize"
+                Value="12"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource SecondaryText}"/>
+
+    </Style>
+
+</ResourceDictionary>

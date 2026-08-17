@@ -1,0 +1,115 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ===================================================== -->
+    <!-- MODERN CHECKBOX -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="ModernCheckBox"
+           TargetType="CheckBox">
+
+        <Setter Property="FontSize"
+                Value="14"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryText}"/>
+
+        <Setter Property="Cursor"
+                Value="Hand"/>
+
+        <Setter Property="Margin"
+                Value="0"/>
+
+        <Setter Property="VerticalAlignment"
+                Value="Center"/>
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="CheckBox">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <!-- CHECK -->
+                        <Border x:Name="CheckBorder"
+
+                                Width="20"
+                                Height="20"
+
+                                CornerRadius="4"
+
+                                Background="{StaticResource CardBackground}"
+
+                                BorderBrush="{StaticResource BorderColor}"
+
+                                BorderThickness="1">
+
+                            <TextBlock x:Name="CheckMark"
+
+                                       Text="✓"
+
+                                       FontSize="14"
+
+                                       FontWeight="Bold"
+
+                                       Foreground="White"
+
+                                       HorizontalAlignment="Center"
+
+                                       VerticalAlignment="Center"
+
+                                       Visibility="Collapsed"/>
+
+                        </Border>
+
+                        <!-- CONTENT -->
+                        <ContentPresenter Margin="10,0,0,0"
+                                          VerticalAlignment="Center"/>
+
+                    </StackPanel>
+
+                    <ControlTemplate.Triggers>
+
+                        <!-- CHECKED -->
+
+                        <Trigger Property="IsChecked"
+                                 Value="True">
+
+                            <Setter TargetName="CheckBorder"
+                                    Property="Background"
+                                    Value="{StaticResource PrimaryColor}"/>
+
+                            <Setter TargetName="CheckBorder"
+                                    Property="BorderBrush"
+                                    Value="{StaticResource PrimaryColor}"/>
+
+                            <Setter TargetName="CheckMark"
+                                    Property="Visibility"
+                                    Value="Visible"/>
+
+                        </Trigger>
+
+                        <!-- HOVER -->
+
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+
+                            <Setter TargetName="CheckBorder"
+                                    Property="BorderBrush"
+                                    Value="{StaticResource PrimaryColor}"/>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+    </Style>
+
+</ResourceDictionary>

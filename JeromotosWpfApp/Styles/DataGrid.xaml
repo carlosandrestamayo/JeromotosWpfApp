@@ -1,0 +1,137 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ===================================================== -->
+    <!-- DATAGRID -->
+    <!-- ===================================================== -->
+
+    <Style TargetType="DataGrid">
+
+        <Setter Property="Background"
+                Value="{StaticResource CardBackground}"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryText}"/>
+
+        <Setter Property="BorderBrush"
+                Value="{StaticResource BorderColor}"/>
+
+        <Setter Property="BorderThickness"
+                Value="1"/>
+
+        <Setter Property="RowBackground"
+                Value="{StaticResource CardBackground}"/>
+
+        <Setter Property="AlternatingRowBackground"
+                Value="#F9FAFB"/>
+
+        <Setter Property="GridLinesVisibility"
+                Value="Horizontal"/>
+
+        <Setter Property="HeadersVisibility"
+                Value="Column"/>
+
+        <Setter Property="FontSize"
+                Value="13"/>
+
+        <Setter Property="RowHeight"
+                Value="45"/>
+
+        <Setter Property="CanUserResizeRows"
+                Value="False"/>
+
+        <Setter Property="AutoGenerateColumns"
+                Value="False"/>
+
+    </Style>
+
+    <!-- ===================================================== -->
+    <!-- HEADER -->
+    <!-- ===================================================== -->
+
+    <Style TargetType="DataGridColumnHeader">
+
+        <Setter Property="Background"
+                Value="#F3F4F6"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryText}"/>
+
+        <Setter Property="FontWeight"
+                Value="Bold"/>
+
+        <Setter Property="Height"
+                Value="45"/>
+
+        <Setter Property="BorderBrush"
+                Value="{StaticResource BorderColor}"/>
+
+        <Setter Property="BorderThickness"
+                Value="0,0,0,1"/>
+
+        <Setter Property="Padding"
+                Value="10,0"/>
+
+    </Style>
+
+    <!-- ===================================================== -->
+    <!-- ROW -->
+    <!-- ===================================================== -->
+
+    <Style TargetType="DataGridRow">
+
+        <Setter Property="Background"
+                Value="White"/>
+
+        <Setter Property="BorderThickness"
+                Value="0"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryText}"/>
+
+        <Style.Triggers>
+
+            <!-- HOVER -->
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+
+                <Setter Property="Background"
+                        Value="#EFF6FF"/>
+
+            </Trigger>
+
+            <!-- SELECTED -->
+            <Trigger Property="IsSelected"
+                     Value="True">
+
+                <Setter Property="Background"
+                        Value="#DBEAFE"/>
+
+                <Setter Property="Foreground"
+                        Value="{StaticResource PrimaryText}"/>
+
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+    <!-- ===================================================== -->
+    <!-- CELL -->
+    <!-- ===================================================== -->
+
+    <Style TargetType="DataGridCell">
+
+        <Setter Property="BorderThickness"
+                Value="0"/>
+
+        <Setter Property="Padding"
+                Value="10,5"/>
+
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}"/>
+
+    </Style>
+
+</ResourceDictionary>

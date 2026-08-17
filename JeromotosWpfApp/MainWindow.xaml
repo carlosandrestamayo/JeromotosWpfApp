@@ -1,0 +1,138 @@
+﻿<Window x:Class="JeromotosWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shared="clr-namespace:JeromotosWpfApp.Views.Shared"
+        xmlns:local="clr-namespace:JeromotosWpfApp"
+        mc:Ignorable="d"
+        Title="Jeromotos 24" 
+        Height="450" 
+        Width="800"
+        WindowState="Maximized">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Background="{StaticResource SidebarBackground}">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Margin="25">
+
+                    <TextBlock Text="MI SISTEMA"
+                               Style="{StaticResource TitleText}"
+                               Foreground="{StaticResource WhiteText}"/>
+
+                    <TextBlock Text="Sistema Administrativo"
+                               Style="{StaticResource SubtitleText}"
+                               Foreground="{StaticResource SecondaryText}"
+                               Margin="0,5,0,0"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="1"
+                            Margin="0,20,0,0">
+
+                    <Button x:Name="btnDashboard"
+                            Content="🏠 Dashboard"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnDashboard_Click"/>
+
+                    <Button x:Name="btnClientes"
+                            Content="👥 Clientes"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnClientes_Click"/>
+
+                    <Button x:Name="btnMarcas"
+                            Content="📦 Marcas"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnMarcas_Click"/>
+
+                    <Button x:Name="btnServiciosTaller"
+                            Content="📄 Servicios Taller"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnServiciosTaller_Click"/>
+
+                    <Button x:Name="btnReferencias"
+                            Content="🧾 Referencias"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnReferencias_Click"/>
+
+                    <Button x:Name="btnUsuarios"
+                            Content="🔐 Usuarios"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnUsuarios_Click"/>
+
+                    <Button x:Name="btnChangePassword"
+                            Content="🔑 Cambiar Contraseña"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnChangePassword_Click"/>
+
+                </StackPanel>
+
+                <Border Grid.Row="2"
+                        Margin="15"
+                        Background="#1F2937"
+                        BorderThickness="0"
+                        Style="{StaticResource CardStyle}">
+
+                    <StackPanel>
+
+                        <TextBlock x:Name="txtUserName"
+                                   Text="Usuario"
+                                   FontSize="14"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource WhiteText}"/>
+
+                        <TextBlock x:Name="txtUserRole"
+                                   Text="Rol"
+                                   Margin="0,5,0,15"
+                                   Style="{StaticResource MutedText}"
+                                   Foreground="{StaticResource SecondaryText}"/>
+
+                        <Button x:Name="btnLogout"
+                                Content="🚪 Cerrar Sesión"
+                                Style="{StaticResource SecondaryButton}"
+                                Click="BtnLogout_Click"/>
+
+                    </StackPanel>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+
+        <Grid Grid.Column="1"
+              Background="{StaticResource MainBackground}">
+
+            <Border Margin="15"
+                    Style="{StaticResource CardStyle}">
+
+                <ContentControl x:Name="Contenedor"/>
+
+            </Border>
+
+            <!-- Notificaciones -->
+            <shared:NotificationControl x:Name="Notification"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+
+        </Grid>
+
+        
+
+
+    </Grid>
+</Window>
