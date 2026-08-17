@@ -64,9 +64,9 @@ namespace JeromotosWpfApp.Views.Referencias
 
                 if (referencia != null)
                 {
-                    //var editReferenciaWindow = new EditReferenciaWindow(referencia);
+                    var editReferenciaWindow = new EditReferenciaWindow(referencia);
 
-                    //editReferenciaWindow.ShowDialog();
+                    editReferenciaWindow.ShowDialog();
 
                     LoadReferencias();
                 }

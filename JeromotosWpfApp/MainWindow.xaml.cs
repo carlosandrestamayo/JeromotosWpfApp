@@ -69,6 +69,12 @@ namespace JeromotosWpfApp
             Contenedor.Content = new ReferenciasView();
         }
 
+        private void BtnMantenimientos_Click(object sender, RoutedEventArgs e)
+        {
+            ActivateMenuButton(btnMantenimientos);
+            //Contenedor.Content = new MantenimientosView();
+        }
+
         private void BtnUsuarios_Click(object sender, RoutedEventArgs e)
         {
             //ActivateMenuButton(btnUsuarios);
@@ -145,6 +151,7 @@ namespace JeromotosWpfApp
                btnServiciosTaller,
                btnClientes,
                btnReferencias,
+               btnMantenimientos
             };
 
 

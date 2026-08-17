@@ -26,6 +26,20 @@ namespace JeromotosWpfApp.Models
             }
         }
 
+        [JsonIgnore]
+        public string NombreNormalizado
+        {
+            get
+            {
+                return new string(
+                    Nombre
+                        .Where(c => !char.IsWhiteSpace(c))
+                        .Where(c => !char.IsPunctuation(c))
+                        .ToArray()
+                ).ToUpperInvariant();
+            }
+        }
+
         [JsonConstructor]
         public Referencia(
             Guid id,

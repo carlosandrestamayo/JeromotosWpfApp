@@ -21,7 +21,7 @@ namespace JeromotosWpfApp.Controllers
 
         public string Add(Referencia referencia)
         {
-            referencia.Nombre = TextNormalizer.Name(referencia.Nombre);
+            referencia.Nombre = TextNormalizer.Upper(referencia.Nombre);
 
             string validation = ReferenciaValidator.Validate(referencia);
 
@@ -44,7 +44,9 @@ namespace JeromotosWpfApp.Controllers
 
         public string Update(Referencia referencia, Guid id)
         {
-            referencia.Nombre = TextNormalizer.Name(referencia.Nombre);
+            //referencia.Nombre = TextNormalizer.Name(referencia.Nombre);
+
+            referencia.Nombre = TextNormalizer.Upper(referencia.Nombre);
 
             string validation = ReferenciaValidator.Validate(referencia);
 

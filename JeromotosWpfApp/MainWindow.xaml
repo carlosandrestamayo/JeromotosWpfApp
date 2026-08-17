@@ -30,7 +30,7 @@
 
                 <StackPanel Margin="25">
 
-                    <TextBlock Text="MI SISTEMA"
+                    <TextBlock Text="Jeromotos24 App"
                                Style="{StaticResource TitleText}"
                                Foreground="{StaticResource WhiteText}"/>
 
@@ -63,6 +63,11 @@
                             Content="📄 Servicios Taller"
                             Style="{StaticResource MenuButton}"
                             Click="BtnServiciosTaller_Click"/>
+                    
+                    <Button x:Name="btnMantenimientos"
+                            Content="📄 Mantenimientos"
+                            Style="{StaticResource MenuButton}"
+                            Click="BtnMantenimientos_Click"/>
 
                     <Button x:Name="btnReferencias"
                             Content="🧾 Referencias"

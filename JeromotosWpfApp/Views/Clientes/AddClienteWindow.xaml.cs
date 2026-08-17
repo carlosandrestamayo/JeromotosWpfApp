@@ -15,6 +15,14 @@ namespace JeromotosWpfApp.Views.Clientes
             InitializeComponent();
 
             txtNombre.Focus();
+
+            txtNombre.KeyDown += TextBox_KeyDown;
+
+            txtDocumento.KeyDown += TextBox_KeyDown;
+
+            txtTelefono.KeyDown += TextBox_KeyDown;
+
+            txtEmail.KeyDown += TextBox_KeyDown;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

@@ -17,6 +17,8 @@ namespace JeromotosWpfApp.Views.Marcas
         {
             InitializeComponent();
             txtNombre.Focus();
+
+            txtNombre.KeyDown += TextBox_KeyDown;
          }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
